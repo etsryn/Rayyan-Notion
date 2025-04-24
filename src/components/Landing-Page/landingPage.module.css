@@ -1,0 +1,289 @@
+/* This CSS applies when the user prefers dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+}
+
+/* Theme variables */
+:root {
+    --bg: #1e1e1e;
+    --sidebar: #161616;
+    --text: #d7dadc;
+    --text-faint: #9ca0a5;
+    --active: #2f2f2f;
+    --border: #2a2a2a;
+    --radius: 6px;
+    --font-body: "Inter", sans-serif;
+}
+
+/* Reset & base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+
+}
+
+li {
+    list-style: none;
+}
+
+/* Layout */
+.wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Sidebar */
+.sidebar {
+    position: relative;
+    background: #1e2022;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px 8px 24px;
+    font-size: 0.9vw;
+    font-weight: 600;
+    color: darkgrey;
+    transition: width 0.18s ease;
+    width: 100vw;
+}
+
+.appIcon {
+    font-size: 20px;
+    margin: 4px 8px 18px;
+}
+
+.navSection {
+    margin-bottom: 20px;
+}
+
+.sectionTitle {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 10px 12px;
+}
+
+.navSection ul li {
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.navSection ul li:hover {
+    background: var(--active);
+}
+
+.active {
+    background: var(--active);
+    color: #fff;
+}
+
+/* toggle / collapse button */
+.toggleBtn {
+    position: absolute;
+    top: 8px;
+    right: 2px;
+    border: none;
+    background: transparent;
+}
+
+.toggleBtn:hover {
+    border: none;
+}
+
+/* drag handle */
+.resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resizer:hover {
+    background: var(--active);
+}
+
+/* hierarchy styles */
+.super {
+    font-weight: 600;
+}
+
+.sub {
+    font-weight: 500;
+}
+
+/* chevron */
+.chevron {
+    display: inline-block;
+    width: 16px;
+    margin-right: 2px;
+    transition: transform 0.15s;
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    background: var(--sidebar);
+    overflow-y: hidden;
+    z-index: 10000;
+    padding: 25px 60px;
+}
+
+.docHeader h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.iframeWrap {
+    width: 100%;
+    height: calc(100vh - 6vh);
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius);
+}
+
+.super,
+.sub {
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.appTitle {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+/* Wrapper for search input and dropdown */
+.searchWrapper {
+    position: relative;
+    margin: 30px 0;
+    width: 100%;
+}
+
+/* Style the search input field */
+.search {
+    width: 90%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #3b3b3b;
+    outline: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Dropdown container */
+.searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #2a2a2a;
+    /* Dark background */
+    border: 1px solid #3b3b3b;
+    /* Match the border with the search input */
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    background-color: #2a2a2a;
+}
+
+/* Individual list item inside dropdown */
+.searchResults li {
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: darkgray;
+    /* White text */
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Hover effect for list item */
+.searchResults li:hover {
+    color: #fff;
+    /* Blue text on hover */
+}
+
+/* Focused or active item in the list */
+.searchResults li:active {
+    background-color: #575757;
+    /* Darker background on click */
+}
+
+/* No results found message */
+.noResults {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    color: #999;
+    /* Gray color for 'no results' text */
+    text-align: center;
+    font-weight: 600;
+}
+
+.footer {
+    border-top: 1px solid darkgray;
+    padding: 10px 0px;
+    text-align: left;
+    font-size: 0.8rem;
+    color: darkgray;
+    margin-top: 20px;
+    position: fixed;
+    padding-left: 2.58vw;
+    width: 100vw;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background: #1e2022;
+    z-index: 1000;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #68A1D9;
+}

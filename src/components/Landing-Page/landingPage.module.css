@@ -181,7 +181,6 @@ li {
     margin-left: 4px;
     white-space: nowrap;
 }
-
 /* Wrapper for search input and dropdown */
 .searchWrapper {
     position: relative;
@@ -268,7 +267,7 @@ li {
     color: darkgray;
     margin-top: 20px;
     position: fixed;
-    padding-left: 2.58vw;
+    padding-left: 1.9vw;
     width: 100vw;
     bottom: 0px;
     left: 0;

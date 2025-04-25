@@ -1,13 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./landingPage.module.css";
 import { SiLinkedin } from "react-icons/si";
-import {
-  FileText,
-  ChevronRight,
-  ChevronDown,
-  ChevronLeft,
-  Menu,
-} from "lucide-react";
+import { FileText, ChevronRight, ChevronDown, ChevronLeft, Menu } from "lucide-react";
 
 /* ─── navigation tree ────────────────────────────────── */
 const navTree = [
@@ -142,18 +136,6 @@ const NavItem = ({
 
 /* ─── LandingPage ───────────────────────────────────── */
 const LandingPage = () => {
-  const [zoomOk, setZoomOk] = useState(true);
-
-  useEffect(() => {
-    const checkZoom = () => {
-      // devicePixelRatio of 1 == 100%
-      const z = window.devicePixelRatio || 1;
-      setZoomOk(Math.abs(z - 1) < 0.01);
-    };
-    checkZoom();
-    window.addEventListener("resize", checkZoom);
-    return () => window.removeEventListener("resize", checkZoom);
-  }, []);
   const defaultLabel = navTree[0].label;
   const [active, setActive] = useState(defaultLabel);
   const [term, setTerm] = useState("");

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./landingPage.module.css";
 import { SiLinkedin } from "react-icons/si";
 import { FileText, ChevronRight, ChevronDown, ChevronLeft, Menu } from "lucide-react";
-
+import Popup from '../popups/popUp';
 /* ─── navigation tree ────────────────────────────────── */
 const navTree = [
   {
@@ -175,6 +175,81 @@ const LandingPage = () => {
     };
     setCollapsedMap(init(navTree));
   }, []);
+  
+  // const [showPopup, setShowPopup] = useState(false);
+
+  // useEffect(() => {
+  //   function notifyDarkModeRecommendation() {
+  //     setShowPopup(true);
+  //     alert(
+  //       'Rayyan-Notion recommends using dark mode for a better experience.\n\n' +
+  //       'To enable dark mode:\n' +
+  //       '1. Click on the [ 3 vertical dots ] (⋮) in the top-right corner.\n' +
+  //       '2. Click on [ Settings ].\n' +
+  //       '3. Choose [ Appearance ] from the left sidebar.\n' +
+  //       '4. In the [ Mode ] dropdown, select [ Dark ].'
+  //     );
+  //   }
+  
+  //   function detectColorScheme() {
+  //     if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  //       notifyDarkModeRecommendation();
+  //     }
+  //   }
+  
+  //   // Listen for changes in the user's color scheme preference
+  //   const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  //   const handleChange = (event) => {
+  //     if (!event.matches) {
+  //       notifyDarkModeRecommendation();
+  //     }
+  //   };
+  //   colorSchemeMediaQuery.addEventListener('change', handleChange);
+  
+  //   // Initial check on page load
+  //   detectColorScheme();
+  
+  //   // Cleanup the event listener on unmount
+  //   return () => {
+  //     colorSchemeMediaQuery.removeEventListener('change', handleChange);
+  //   };
+  // }, []);
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    function notifyDarkModeRecommendation() {
+      setShowPopup(true);
+    }
+
+    function detectColorScheme() {
+      if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        notifyDarkModeRecommendation();
+      }
+    }
+
+    const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (event) => {
+      if (!event.matches) {
+        notifyDarkModeRecommendation();
+      }
+    };
+
+    colorSchemeMediaQuery.addEventListener('change', handleChange);
+    detectColorScheme();
+
+    return () => {
+      colorSchemeMediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+  const message = `Rayyan-Notion recommends using dark mode for a better experience.
+                  To enable dark mode:
+                  1. Click on the [ 3 vertical dots ] (⋮) in the top-right corner.
+                  2. Click on [ Settings ].
+                  3. Choose [ Appearance ] from the left sidebar.
+                  4. In the [ Mode ] dropdown, select [ Dark ].`;
+
 
   const onDrag = (e) => {
     if (startX.current !== null) {
@@ -207,6 +282,7 @@ const LandingPage = () => {
 
   return (
     <div className={styles.wrapper} onMouseMove={onDrag} onMouseUp={stopDrag}>
+      
       {/* ── sidebar ─────────────────────────────── */}
       <aside
         className={styles.sidebar}
@@ -310,6 +386,7 @@ const LandingPage = () => {
             className={styles.iframe}
           />
         </section>
+        {showPopup && <Popup message={message} onClose={() => setShowPopup(false)} />}
       </main>
     </div>
   );

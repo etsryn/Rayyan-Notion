@@ -279,7 +279,7 @@ const LandingPage = () => {
             </div>
 
             <nav className={styles.navSection}>
-              <span className={styles.sectionTitle}>Private</span>
+              <span className={styles.sectionTitle}>Public</span>
               <ul>
                 {navTree.map((n) => (
                   <NavItem
@@ -325,7 +325,6 @@ const LandingPage = () => {
             src={urlLookup[active]}
             title={active}
             loading="lazy"
-            frameBorder="0"
             className={styles.iframe}
           />
         </section>

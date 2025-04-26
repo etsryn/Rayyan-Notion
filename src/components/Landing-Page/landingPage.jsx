@@ -39,18 +39,28 @@ const navTree = [
           },
         ],
       },
-    ],
-  },
-  {
-    label: "Vectorization Techniques",
-    url: "https://rayyan-ashraf.notion.site/ebd/1dfcc74e579a803ba8b7dd88c727c445",
-    children: [
       {
-        label: "One-Hot Encoding",
-        url: "https://rayyan-ashraf.notion.site/ebd/1d8cc74e579a806e99f5e8289faeefdd",
+        label: "Vectorization Techniques",
+        url: "https://rayyan-ashraf.notion.site/ebd/1dfcc74e579a803ba8b7dd88c727c445",
+        children: [
+          {
+            label: "One-Hot Encoding",
+            url: "https://rayyan-ashraf.notion.site/ebd/1d8cc74e579a806e99f5e8289faeefdd",
+          },
+        ],
       },
     ],
   },
+  // {
+  //   label: "Vectorization Techniques",
+  //   url: "https://rayyan-ashraf.notion.site/ebd/1dfcc74e579a803ba8b7dd88c727c445",
+  //   children: [
+  //     {
+  //       label: "One-Hot Encoding",
+  //       url: "https://rayyan-ashraf.notion.site/ebd/1d8cc74e579a806e99f5e8289faeefdd",
+  //     },
+  //   ],
+  // },
 ];
 
 /* ─── helpers ────────────────────────────────────────── */

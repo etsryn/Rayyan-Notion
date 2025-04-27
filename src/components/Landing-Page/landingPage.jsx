@@ -51,16 +51,64 @@ const navTree = [
       },
     ],
   },
-  // {
-  //   label: "Vectorization Techniques",
-  //   url: "https://rayyan-ashraf.notion.site/ebd/1dfcc74e579a803ba8b7dd88c727c445",
-  //   children: [
-  //     {
-  //       label: "One-Hot Encoding",
-  //       url: "https://rayyan-ashraf.notion.site/ebd/1d8cc74e579a806e99f5e8289faeefdd",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Data Science",
+    url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80dda0b4ed58d240dd0f",
+    children: [
+      {
+        label: "Data Wrangling",
+        url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80f68be6faaef8755dbf",
+        children: [
+          {
+            label: "Data Ingestion",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a8091a8e9f1dea7511aaf",
+            children: [
+              {
+                label: "Ingestion From CSV File",
+                url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a808b8f69e3094de66c71",
+              },
+              {
+                label: "Ingestion From JSON File",
+                url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a8092a55ef81455205af7",
+              },
+            ],
+          },
+          {
+            label: "Data Profiling & Exploration",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80f88d26ecb12a64c128",
+          },
+          {
+            label: "Data Cleaning",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80888bf2ee7d55f4025b",
+          },
+          {
+            label: "Data Parsing & Type Conversion",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80d49540d15de63d2c0b",
+          },
+          {
+            label: "Data Reshaping & Transformation",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a8049a029dec3ca7bf608",
+          },
+          {
+            label: "Feature Engineering",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a8084953ac492706d290e",
+          },
+          {
+            label: "Data Integration & Enrichment",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a8006afb8c4fc45319991",
+          },
+          {
+            label: "Data Validation & Quality Assurance",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a803db822ca8bb58097db",
+          },
+          {
+            label: "Documentation & Reproducibility",
+            url: "https://rayyan-ashraf.notion.site/ebd/1e1cc74e579a80d68d2bda3ad2e30777",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 /* ─── helpers ────────────────────────────────────────── */

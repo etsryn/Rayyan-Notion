@@ -259,6 +259,28 @@ li {
     font-weight: 600;
 }
 
+.challengeButtonLink {
+    text-decoration: none;
+  }
+  
+  .challengeButton {
+    margin: 4vh auto 0vh auto;
+    padding: 8px 16px;
+    background-color: #2C2C2D;
+    color: darkgray;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .challengeButton:hover {
+    background-color: #4338ca; /* Darker Indigo */
+  }
+  
+
 .footer {
     border-top: 1px solid darkgray;
     padding: 10px 0px;

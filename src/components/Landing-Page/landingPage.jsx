@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./landingPage.module.css";
 import { SiLinkedin } from "react-icons/si";
-import { FileText, ChevronRight, ChevronDown, ChevronLeft, Menu } from "lucide-react";
+import { PenLine, FileText, ChevronRight, ChevronDown, ChevronLeft, Menu } from "lucide-react";
 import Popup from '../popups/popUp';
 
 /* ─── navigation tree ─────────────────────────────────────────────────────────────────────────────────────────── */
@@ -356,6 +356,20 @@ const LandingPage = () => {
                 onBlur={() => setTimeout(() => setOpen(false), 150)}
                 className={styles.search}
               />
+              <a
+    href="https://rnotion-challenge.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.challengeButtonLink}
+    >
+    <div>
+    <button type="button" className={styles.challengeButton}>
+    <PenLine size={16} color="darkgray" style={{ marginRight: 6 }} /> Try RNotion's Challenge
+    </button>
+  </div>
+  </a>
+
+
               {open && term && matches.length > 0 && (
                 <ul className={styles.searchResults}>
                   {matches.slice(0, 20).map((m) => (

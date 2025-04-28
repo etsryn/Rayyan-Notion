@@ -3,7 +3,8 @@ import styles from "./landingPage.module.css";
 import { SiLinkedin } from "react-icons/si";
 import { FileText, ChevronRight, ChevronDown, ChevronLeft, Menu } from "lucide-react";
 import Popup from '../popups/popUp';
-/* ─── navigation tree ────────────────────────────────── */
+
+/* ─── navigation tree ─────────────────────────────────────────────────────────────────────────────────────────── */
 const navTree = [
   {
     label: "Welcome; Get Started",
@@ -131,7 +132,7 @@ const treeToList = (nodes, parent = []) =>
 const flatOptions = treeToList(navTree);
 const urlLookup = flattenUrls(navTree);
 
-/* ─── NavItem ────────────────────────────────────────── */
+// ─── NavItem ────────────────────────────────────── */
 const NavItem = ({
   node,
   depth,
@@ -194,6 +195,8 @@ const NavItem = ({
 
 /* ─── LandingPage ───────────────────────────────────── */
 const LandingPage = () => {
+
+  // Set 1
   const defaultLabel = navTree[0].label;
   const [active, setActive] = useState(defaultLabel);
   const [term, setTerm] = useState("");
@@ -201,9 +204,15 @@ const LandingPage = () => {
   const [width, setWidth] = useState(250);
   const [collapsed, setCollapsed] = useState(false);
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  // Set 2
   const [collapsedMap, setCollapsedMap] = useState({});
   const startX = useRef(null);
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  // Collapse sidebar on viewport resize
   useEffect(() => {
     const handleResize = () => {
       // Collapse sidebar if the viewport width is less than 1000px
@@ -215,14 +224,13 @@ const LandingPage = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Call handleResize on initial load to set correct state
     handleResize();
-
-    // Clean up event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  // This code initializes a collapsedMap (NavTree)
   useEffect(() => {
     const init = (nodes, map = {}) => {
       nodes.forEach((n) => {
@@ -234,45 +242,9 @@ const LandingPage = () => {
     setCollapsedMap(init(navTree));
   }, []);
   
-  // const [showPopup, setShowPopup] = useState(false);
+// -----------------------------------------------------------------------------------------------------------------------------
 
-  // useEffect(() => {
-  //   function notifyDarkModeRecommendation() {
-  //     setShowPopup(true);
-  //     alert(
-  //       'Rayyan-Notion recommends using dark mode for a better experience.\n\n' +
-  //       'To enable dark mode:\n' +
-  //       '1. Click on the [ 3 vertical dots ] (⋮) in the top-right corner.\n' +
-  //       '2. Click on [ Settings ].\n' +
-  //       '3. Choose [ Appearance ] from the left sidebar.\n' +
-  //       '4. In the [ Mode ] dropdown, select [ Dark ].'
-  //     );
-  //   }
-  
-  //   function detectColorScheme() {
-  //     if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  //       notifyDarkModeRecommendation();
-  //     }
-  //   }
-  
-  //   // Listen for changes in the user's color scheme preference
-  //   const colorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  //   const handleChange = (event) => {
-  //     if (!event.matches) {
-  //       notifyDarkModeRecommendation();
-  //     }
-  //   };
-  //   colorSchemeMediaQuery.addEventListener('change', handleChange);
-  
-  //   // Initial check on page load
-  //   detectColorScheme();
-  
-  //   // Cleanup the event listener on unmount
-  //   return () => {
-  //     colorSchemeMediaQuery.removeEventListener('change', handleChange);
-  //   };
-  // }, []);
-
+  // This code detects if the user is using dark mode and shows a popup if not
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
@@ -308,7 +280,9 @@ const LandingPage = () => {
                   3. Choose [ Appearance ] from the left sidebar.
                   4. In the [ Mode ] dropdown, select [ Dark ].`;
 
+// -----------------------------------------------------------------------------------------------------------------------------
 
+  // This code handles the sidebar resizing
   const onDrag = (e) => {
     if (startX.current !== null) {
       const delta = e.clientX - startX.current;
@@ -320,10 +294,16 @@ const LandingPage = () => {
 
   const stopDrag = () => (startX.current = null);
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  // This code handles the search functionality ---------------------------------------------------------------------------------
   const matches = flatOptions.filter((o) =>
     o.label.toLowerCase().includes(term.toLowerCase())
   );
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+  // Expands all folders in its path so the page becomes visible in the tree.
   const handleSelect = (label) => {
     const match = flatOptions.find((o) => o.label === label);
     if (match) {
@@ -337,7 +317,7 @@ const LandingPage = () => {
       setActive(label);
     }
   };
-
+// -----------------------------------------------------------------------------------------------------------------------------
   return (
     <div className={styles.wrapper} onMouseMove={onDrag} onMouseUp={stopDrag}>
       

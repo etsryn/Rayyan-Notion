@@ -10,6 +10,12 @@ const navTree = [
     label: "Welcome; Get Started",
     url: "https://rayyan-ashraf.notion.site/ebd/1dfcc74e579a80b9b46ce091c7cbafd6",
   },
+
+  {
+    label: "Machine Learning",
+    url: "https://rayyan-ashraf.notion.site/ebd/238cc74e579a80e5ab14e02415388b8c",
+  },
+  
   {
     label: "Natural Language Processing",
     url: "https://rayyan-ashraf.notion.site/ebd/1d8cc74e579a80998c55d1f7f53ada58",
